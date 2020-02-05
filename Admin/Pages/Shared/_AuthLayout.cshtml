@@ -4,11 +4,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    
 </head>
-<body>
+<body style="background-image:url('/images/wood.jpg')">
+    
     <div>
         @RenderBody()
     </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Admin - <a asp-area="">Privacy</a>
+        </div>
+    </footer>
 </body>
 @RenderSection("Scripts", required: false)
+
 </html>
