@@ -13,6 +13,8 @@ namespace Admin.Data
 
         public string Surname { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public string Firstname { get; set; }
 
         public string Middlename { get; set; }
@@ -33,9 +35,11 @@ namespace Admin.Data
         
         public DateTime DateOfBirth { get; set; }
 
-        public string Username { get; set; }
-
         public DateTime RegistrationDate { get; set; }
+
+        public int? PaymentDetailId { get; set; }
+        public int? BankDetailId { get; set; }
+
 
         // navigation property
         public BankDetail BankDetail { get; set; }

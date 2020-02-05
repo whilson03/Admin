@@ -9,20 +9,20 @@ namespace Admin.Data
     {
         public int Id { get; set; }
 
-        public int MemberId { get; set; }
-
-        public Member Member { get; set; }
-
         public string BankName { get; set;}
 
         public string AccountNumber { get; set; }
 
         public string NextOfKinName { get; set; }
 
-        public String NextOfKinAddress { get; set; }
+        public string NextOfKinAddress { get; set; }
 
-        public String NextOfKinPhoneNumber { get; set; }
+        public string NextOfKinPhoneNumber { get; set; }
 
-        public String NextOfKinRelationship { get; set; }
+        public string NextOfKinRelationship { get; set; }
+
+        public int MemberId { get; set; }
+
+        public Member Member { get; set; }
     }
 }
