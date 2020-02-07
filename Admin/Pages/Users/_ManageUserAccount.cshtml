@@ -1,0 +1,8 @@
+﻿@using Admin.Pages.Users;
+
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link @ManageNavPages.BioDataNavClass(ViewContext)" id="change-biodata" asp-page="./Index">BioData</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.BankDetailNavClass(ViewContext)" id="two-factor" asp-page="./BankDetailPage">Bank Detail</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.PaymentDetailNavClass(ViewContext)" id="payment-detail" asp-page="./PaymentDetailPage">Payment Detail</a></li>
+</ul>
+

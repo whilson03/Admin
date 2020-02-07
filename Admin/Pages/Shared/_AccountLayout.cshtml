@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Manage your account</h2>
+
+<div>
+    <h5>Change your account settings</h5>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageUserAccount" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

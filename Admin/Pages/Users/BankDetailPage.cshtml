@@ -1,0 +1,100 @@
+﻿@page
+@model Admin.BankDetailPageModel
+
+@{
+    ViewData["Title"] = "Bank Details";
+    ViewData["ActivePage"] = ManageNavPages.BankDetail;
+}
+
+<div class="card">
+    <div class="row">
+        <div class="col-md-12 card-body rounded">
+            <div class="card-header" >
+                <h4> @ViewData["Title"]</h4>
+
+            </div>
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="BankDetail.BankName" class="control-label"></label>
+                            <input asp-for="BankDetail.BankName" class="form-control" />
+                            <span asp-validation-for="BankDetail.BankName" class="text-danger"></span>
+                            <input type="hidden" asp-for="BankDetail.Id" />
+
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="BankDetail.AccountNumber" class="control-label"></label>
+                            <input asp-for="BankDetail.AccountNumber" class="form-control" />
+                            <span asp-validation-for="BankDetail.AccountNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="BankDetail.NextOfKinName" class="control-label"></label>
+                            <input asp-for="BankDetail.NextOfKinName" class="form-control" />
+                            <span asp-validation-for="BankDetail.NextOfKinName" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="BankDetail.NextOfKinAddress" class="control-label"></label>
+                            <input asp-for="BankDetail.NextOfKinAddress" class="form-control" />
+                            <span asp-validation-for="BankDetail.NextOfKinAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+
+
+
+                        <div class="form-group">
+                            <label asp-for="BankDetail.NextOfKinPhoneNumber" class="control-label"></label>
+                            <input asp-for="BankDetail.NextOfKinPhoneNumber" class="form-control" />
+                            <span asp-validation-for="BankDetail.NextOfKinPhoneNumber" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="BankDetail.NextOfKinRelationship" class="control-label"></label>
+                            <input asp-for="BankDetail.NextOfKinRelationship" class="form-control" />
+                            <span asp-validation-for="BankDetail.NextOfKinRelationship" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+
+
+                <div class="form-group card-footer">
+                    <input type="submit" st value="SAVE" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
