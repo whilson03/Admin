@@ -4,14 +4,16 @@ using Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200206083241_member-id-tostring")]
+    partial class memberidtostring
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,8 +41,6 @@ namespace Admin.Data.Migrations
 
                     b.Property<string>("NextOfKinRelationship");
 
-                    b.Property<string>("key");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MemberId")
@@ -62,13 +62,9 @@ namespace Admin.Data.Migrations
 
                     b.Property<DateTime>("PaymentDate");
 
-                    b.Property<int>("PaymentDetailId");
-
                     b.Property<int>("PaymentOption");
 
                     b.Property<string>("PinCode");
-
-                    b.Property<string>("key");
 
                     b.HasKey("Id");
 
@@ -105,15 +101,15 @@ namespace Admin.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8ac29db7-3b0b-4d00-a35b-c0bc6294bee2",
-                            ConcurrencyStamp = "605bb525-8ce1-49a9-8bcf-32f4f86dd17d",
+                            Id = "6f20a095-643a-4767-a16a-e7280eaaf5a8",
+                            ConcurrencyStamp = "434e2ad5-3d48-401d-bfc7-c42f08472fa0",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "cd20ee17-c404-4fe0-86d5-5b705d746c89",
-                            ConcurrencyStamp = "a4af768d-c325-455c-81d9-54d8c1ce5690",
+                            Id = "36f69c05-703b-41ac-aa7c-3c3eaa79fb71",
+                            ConcurrencyStamp = "82d1f473-7294-4229-9e15-086e91dd0849",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });
@@ -271,7 +267,7 @@ namespace Admin.Data.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<int?>("BankDetailId");
+                    b.Property<string>("BankDetailId");
 
                     b.Property<string>("City");
 
@@ -286,6 +282,8 @@ namespace Admin.Data.Migrations
                     b.Property<string>("Middlename");
 
                     b.Property<string>("NameOfUpLine");
+
+                    b.Property<string>("PaymentDetailId");
 
                     b.Property<DateTime>("RegistrationDate");
 

@@ -4,14 +4,16 @@ using Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200206103915_model-update")]
+    partial class modelupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,15 +107,15 @@ namespace Admin.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8ac29db7-3b0b-4d00-a35b-c0bc6294bee2",
-                            ConcurrencyStamp = "605bb525-8ce1-49a9-8bcf-32f4f86dd17d",
+                            Id = "df1f9aca-5d55-4b57-b652-86da02f2781a",
+                            ConcurrencyStamp = "6e4949a4-1d4d-4a47-9834-40df97a5bff4",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "cd20ee17-c404-4fe0-86d5-5b705d746c89",
-                            ConcurrencyStamp = "a4af768d-c325-455c-81d9-54d8c1ce5690",
+                            Id = "4f68f1ae-5f63-4846-90cb-c263700c32c9",
+                            ConcurrencyStamp = "af190f0e-72d0-448f-9447-92db42c475bf",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });

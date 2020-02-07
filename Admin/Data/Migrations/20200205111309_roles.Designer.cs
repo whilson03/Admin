@@ -4,14 +4,16 @@ using Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200205111309_roles")]
+    partial class roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace Admin.Data.Migrations
 
                     b.Property<string>("BankName");
 
-                    b.Property<string>("MemberId");
+                    b.Property<int>("MemberId");
 
                     b.Property<string>("NextOfKinAddress");
 
@@ -39,13 +41,7 @@ namespace Admin.Data.Migrations
 
                     b.Property<string>("NextOfKinRelationship");
 
-                    b.Property<string>("key");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("MemberId")
-                        .IsUnique()
-                        .HasFilter("[MemberId] IS NOT NULL");
 
                     b.ToTable("BankDetails");
                 });
@@ -58,23 +54,15 @@ namespace Admin.Data.Migrations
 
                     b.Property<double>("AmountPaid");
 
-                    b.Property<string>("MemberId");
+                    b.Property<int>("MemberId");
 
                     b.Property<DateTime>("PaymentDate");
-
-                    b.Property<int>("PaymentDetailId");
 
                     b.Property<int>("PaymentOption");
 
                     b.Property<string>("PinCode");
 
-                    b.Property<string>("key");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("MemberId")
-                        .IsUnique()
-                        .HasFilter("[MemberId] IS NOT NULL");
 
                     b.ToTable("PaymentDetails");
                 });
@@ -105,15 +93,15 @@ namespace Admin.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8ac29db7-3b0b-4d00-a35b-c0bc6294bee2",
-                            ConcurrencyStamp = "605bb525-8ce1-49a9-8bcf-32f4f86dd17d",
+                            Id = "b29a6ccd-8f2e-49e4-94ba-c1b9fffc8e54",
+                            ConcurrencyStamp = "099ecfca-30cc-47bf-9363-8a7244d15917",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "cd20ee17-c404-4fe0-86d5-5b705d746c89",
-                            ConcurrencyStamp = "a4af768d-c325-455c-81d9-54d8c1ce5690",
+                            Id = "0b6e9ea9-ed22-4d5d-89be-3728d6247239",
+                            ConcurrencyStamp = "7ff3edf8-05ee-4648-a966-59d7a1c804aa",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });
@@ -287,6 +275,8 @@ namespace Admin.Data.Migrations
 
                     b.Property<string>("NameOfUpLine");
 
+                    b.Property<int?>("PaymentDetailId");
+
                     b.Property<DateTime>("RegistrationDate");
 
                     b.Property<string>("SponsorName");
@@ -299,21 +289,15 @@ namespace Admin.Data.Migrations
 
                     b.Property<string>("WhatsAppNumber");
 
+                    b.HasIndex("BankDetailId")
+                        .IsUnique()
+                        .HasFilter("[BankDetailId] IS NOT NULL");
+
+                    b.HasIndex("PaymentDetailId")
+                        .IsUnique()
+                        .HasFilter("[PaymentDetailId] IS NOT NULL");
+
                     b.HasDiscriminator().HasValue("Member");
-                });
-
-            modelBuilder.Entity("Admin.Data.BankDetail", b =>
-                {
-                    b.HasOne("Admin.Data.Member", "Member")
-                        .WithOne("BankDetail")
-                        .HasForeignKey("Admin.Data.BankDetail", "MemberId");
-                });
-
-            modelBuilder.Entity("Admin.Data.PaymentDetail", b =>
-                {
-                    b.HasOne("Admin.Data.Member", "Member")
-                        .WithOne("PaymentDetail")
-                        .HasForeignKey("Admin.Data.PaymentDetail", "MemberId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -359,6 +343,17 @@ namespace Admin.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Admin.Data.Member", b =>
+                {
+                    b.HasOne("Admin.Data.BankDetail", "BankDetail")
+                        .WithOne("Member")
+                        .HasForeignKey("Admin.Data.Member", "BankDetailId");
+
+                    b.HasOne("Admin.Data.PaymentDetail", "PaymentDetail")
+                        .WithOne("Member")
+                        .HasForeignKey("Admin.Data.Member", "PaymentDetailId");
                 });
 #pragma warning restore 612, 618
         }

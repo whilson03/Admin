@@ -4,14 +4,16 @@ using Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200206100237_added_key-attr")]
+    partial class added_keyattr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,15 +107,15 @@ namespace Admin.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8ac29db7-3b0b-4d00-a35b-c0bc6294bee2",
-                            ConcurrencyStamp = "605bb525-8ce1-49a9-8bcf-32f4f86dd17d",
+                            Id = "fdd84cf2-d8d1-4fdf-9b1b-d1682959bf37",
+                            ConcurrencyStamp = "af2d8f99-d878-42df-b1fa-3edf53ded1db",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "cd20ee17-c404-4fe0-86d5-5b705d746c89",
-                            ConcurrencyStamp = "a4af768d-c325-455c-81d9-54d8c1ce5690",
+                            Id = "1c5cb910-5629-4261-848f-6f890a4988fb",
+                            ConcurrencyStamp = "1c57b068-8da5-4b1a-9778-d5b70c1e14fe",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });
@@ -270,8 +272,6 @@ namespace Admin.Data.Migrations
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.Property<string>("Address");
-
-                    b.Property<int?>("BankDetailId");
 
                     b.Property<string>("City");
 

@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static Admin.Data.Enums;
 
 namespace Admin.Data
@@ -32,14 +29,11 @@ namespace Admin.Data
         public string SponsorName { get; set; }
 
         public string NameOfUpLine { get; set; }
-        
+
         public DateTime DateOfBirth { get; set; }
 
         public DateTime RegistrationDate { get; set; }
-
-        public int? PaymentDetailId { get; set; }
         public int? BankDetailId { get; set; }
-
 
         // navigation property
         public BankDetail BankDetail { get; set; }

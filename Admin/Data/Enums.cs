@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Admin.Data
+﻿namespace Admin.Data
 {
     public class Enums
     {
         public enum Title
         {
-            MR, MRS, MISS , MASTER
+            MR, MRS, MISS, MASTER
         }
 
         public enum PaymentOption
         {
+           CASH, BANK_TRANSFER,CREDIT_CARD,PAYPAL
 
         }
     }
