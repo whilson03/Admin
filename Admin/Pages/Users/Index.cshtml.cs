@@ -53,11 +53,21 @@ namespace Admin
             member.Address = Member.Address;
             member.City = Member.City;
             member.RegistrationDate = Member.RegistrationDate;
+            member.PinCode = Member.PinCode;
+            member.AmountPaid = Member.AmountPaid;
+            member.PaymentOption = Member.PaymentOption;
+            member.PaymentDate = Member.PaymentDate;
+            member.NextOfKinAddress = Member.NextOfKinAddress;
+            member.NextOfKinName = Member.NextOfKinName;
+            member.NextOfKinRelationship = Member.NextOfKinRelationship;
+            member.AccountNumber = Member.AccountNumber;
+            member.BankName = Member.BankName;
+            member.NextOfKinPhoneNumber = Member.NextOfKinPhoneNumber;
 
 
-           
-            
-            
+
+
+
             await _context.SaveChangesAsync();
 
             return Page();

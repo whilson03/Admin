@@ -35,11 +35,27 @@ namespace Admin.Data
         public DateTime RegistrationDate { get; set; }
         public int? BankDetailId { get; set; }
 
-        // navigation property
-        public BankDetail BankDetail { get; set; }
+        public string BankName { get; set; }
 
-        public PaymentDetail PaymentDetail { get; set; }
+        public string AccountNumber { get; set; }
 
+        public string NextOfKinName { get; set; }
+
+        public string NextOfKinAddress { get; set; }
+
+        public string NextOfKinPhoneNumber { get; set; }
+
+        public string NextOfKinRelationship { get; set; }
+
+
+        public string PinCode { get; set; }
+
+        public double AmountPaid { get; set; }
+
+        public PaymentOption PaymentOption { get; set; }
+
+
+        public DateTime PaymentDate { get; set; }
 
     }
 }

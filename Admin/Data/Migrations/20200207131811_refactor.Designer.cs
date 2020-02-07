@@ -4,74 +4,22 @@ using Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200207131811_refactor")]
+    partial class refactor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Admin.Data.Policy", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Allow_Circle");
-
-                    b.Property<bool>("Allowcheck");
-
-                    b.Property<bool>("Chargecheck");
-
-                    b.Property<bool>("Disallowcheck");
-
-                    b.Property<int>("Every");
-
-                    b.Property<int>("Maximum_mem");
-
-                    b.Property<int>("Member_Circle");
-
-                    b.Property<string>("Member_num");
-
-                    b.Property<string>("Pay_mem");
-
-                    b.Property<bool>("Reusecheck");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Policies");
-                });
-
-            modelBuilder.Entity("Admin.Data.StaffUserReg", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DateSuspended");
-
-                    b.Property<string>("Department");
-
-                    b.Property<string>("OtherNames");
-
-                    b.Property<string>("Surname");
-
-                    b.Property<string>("Suspended");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StaffUserRegs");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -99,15 +47,15 @@ namespace Admin.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5b6627cb-7ae9-41c1-b363-21ba917ba00e",
-                            ConcurrencyStamp = "52513bc0-5e85-4e39-b933-c7fa652a64db",
+                            Id = "303534a8-1629-46a8-be83-d50f4a4572a9",
+                            ConcurrencyStamp = "4064eba7-1031-46a4-85fe-2c033774b4de",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a00d0cab-67f9-4126-b0ce-0b9005475e30",
-                            ConcurrencyStamp = "803e2903-37e0-470d-93ef-081b3ee73607",
+                            Id = "363616a0-2c88-446c-83e3-4f862a2439ee",
+                            ConcurrencyStamp = "5a35defe-7712-4a5b-b1c6-7b06e7d670ac",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });

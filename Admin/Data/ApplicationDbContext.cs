@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Admin.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ namespace Admin.Data
     {
         public DbSet<Member> Members { get; set; }
 
-        public DbSet<BankDetail> BankDetails { get; set; }
+        public DbSet<Policy> Policies { get; set; }
 
-        public DbSet<PaymentDetail> PaymentDetails { get; set; }
+        public DbSet<StaffUserReg> StaffUserRegs { get; set; }
+
+       
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -24,15 +27,7 @@ namespace Admin.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Member>()
-           .HasOne(b => b.BankDetail)
-           .WithOne(i => i.Member)
-           .HasForeignKey<BankDetail>(b => b.MemberId);
-
-            builder.Entity<Member>()
-           .HasOne(b => b.PaymentDetail)
-           .WithOne(i => i.Member)
-           .HasForeignKey<PaymentDetail>(b => b.MemberId);
+          
 
             // seeding the database
             var roles = new List<IdentityRole>()

@@ -4,14 +4,16 @@ using Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200207151058_policy-model")]
+    partial class policymodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace Admin.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Admin.Data.Policy", b =>
+            modelBuilder.Entity("AdminPage.Data.Policy", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -50,29 +52,6 @@ namespace Admin.Data.Migrations
                     b.ToTable("Policies");
                 });
 
-            modelBuilder.Entity("Admin.Data.StaffUserReg", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DateSuspended");
-
-                    b.Property<string>("Department");
-
-                    b.Property<string>("OtherNames");
-
-                    b.Property<string>("Surname");
-
-                    b.Property<string>("Suspended");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StaffUserRegs");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -99,15 +78,15 @@ namespace Admin.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5b6627cb-7ae9-41c1-b363-21ba917ba00e",
-                            ConcurrencyStamp = "52513bc0-5e85-4e39-b933-c7fa652a64db",
+                            Id = "d8af30aa-7ee4-4197-a353-4455a92c6086",
+                            ConcurrencyStamp = "4d607965-e2fa-40fb-8715-b03493f5a920",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a00d0cab-67f9-4126-b0ce-0b9005475e30",
-                            ConcurrencyStamp = "803e2903-37e0-470d-93ef-081b3ee73607",
+                            Id = "8ae5e975-91b0-4928-a843-595748e554d3",
+                            ConcurrencyStamp = "7d69bda4-01a1-4e4f-861a-ab1c03e7f77a",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         });

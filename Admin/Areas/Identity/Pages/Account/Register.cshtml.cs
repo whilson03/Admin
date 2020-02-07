@@ -71,6 +71,11 @@ namespace Admin.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
+                    // find the user by email
+                    var signedInUser = await _userManager.FindByEmailAsync(Input.Email);
+                    // grant the user a role
+                    await _userManager.AddToRoleAsync(signedInUser, "User");
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
